@@ -1,5 +1,9 @@
 {
-	"name": "storybook-react-parcel",
-	"version": "0.0.0",
-	"main": "preset.js"
+  "name": "storybook-react-parcel",
+  "version": "0.0.0",
+  "main": "preset.js",
+  "dependencies": {
+    "storybook-builder-parcel": "^0.0.0",
+    "@storybook/react": "^7.6.4"
+  }
 }

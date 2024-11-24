@@ -15,10 +15,6 @@ const TEMPLATE = `<!DOCTYPE html>
       window.STORIES = '[STORIES HERE]';
       window.DOCS_OPTIONS = '[DOCS_OPTIONS HERE]';
       window.SERVER_CHANNEL_URL = '[SERVER_CHANNEL_URL HERE]';
-      
-      // We do this so that "module && module.hot" etc. in Storybook source code
-      // doesn't fail (it will simply be disabled)
-      window.module = undefined;
       </script>
     <!-- [HEAD HTML SNIPPET HERE] -->
   </head>

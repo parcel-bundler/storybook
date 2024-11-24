@@ -1,0 +1,13 @@
+{
+  "name": "parcel-config-storybook",
+  "version": "0.0.0",
+  "main": "storybook-config.json",
+  "engines": {
+    "parcel": "^2.8.0"
+  },
+  "dependencies": {
+    "@parcel/config-default": "^2.13.0",
+    "parcel-resolver-storybook": "^0.0.0",
+    "parcel-transformer-storybook": "^0.0.0"
+  }
+}

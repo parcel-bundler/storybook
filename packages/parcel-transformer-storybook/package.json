@@ -1,0 +1,16 @@
+{
+  "name": "parcel-transformer-storybook",
+  "version": "0.0.0",
+  "main": "StoryTransformer.ts",
+  "engines": {
+    "parcel": "^2.8.0"
+  },
+  "dependencies": {
+    "@parcel/plugin": "^2.10.2",
+    "@storybook/csf-tools": "^7",
+    "@storybook/docs-tools": "^7",
+    "@babel/types": "^7.23.0",
+    "react-docgen-typescript": "^2.2.2",
+    "typescript": "^5.7.2"
+  }
+}
