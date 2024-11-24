@@ -5,7 +5,9 @@
   ],
   "scripts": {
     "storybook": "storybook dev -p 6006 --no-open",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "build": "yarn workspaces run build",
+    "clean": "yarn workspaces run clean"
   },
   "devDependencies": {
     "@storybook/addon-essentials": "^7.6.4",

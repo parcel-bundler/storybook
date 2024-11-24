@@ -14,5 +14,9 @@
   },
   "peerDependencies": {
     "react": "*"
+  },
+  "scripts": {
+    "build": "true",
+    "clean": "true"
   }
 }

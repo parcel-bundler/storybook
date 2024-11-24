@@ -1,8 +1,9 @@
-const path = require('path');
-const { Resolver } = require("@parcel/plugin");
+import path from 'path';
+import { Resolver } from "@parcel/plugin";
 const reactVersion = require("react-dom/package.json").version;
-const { default: NodeResolver } = require("@parcel/node-resolver-core");
-const {isGlob, glob, normalizeSeparators, relativePath} = require('@parcel/utils');
+import { default as NodeResolver } from "@parcel/node-resolver-core";
+// @ts-ignore
+import { isGlob, glob, normalizeSeparators, relativePath } from '@parcel/utils';
 
 const REACT_MAJOR_VERSION = parseInt(reactVersion.split('.')[0], 10);
 
@@ -25,7 +26,7 @@ module.exports = new Resolver({
     // Resolve story entry globs. Storybook expects an object with relative paths from the process cwd as keys.
     // We do this in a resolver so that it invalidates the watcher when new stories are created.
     if (pipeline === 'story' && isGlob(specifier)) {
-      let sourceFile = dependency.resolveFrom ?? dependency.sourcePath;
+      let sourceFile = dependency.resolveFrom ?? dependency.sourcePath!;
       let normalized = normalizeSeparators(path.resolve(path.dirname(sourceFile), specifier));
       let files = await glob(normalized, options.inputFS, {
         onlyFiles: true,

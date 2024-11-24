@@ -11,14 +11,14 @@ A [Storybook Builder](https://storybook.js.org/docs/builders) integration that u
 1. Install the dependencies:
 
 ```
-npm install --save-dev storybook-react-parcel parcel-config-storybook
+npm install --save-dev storybook-react-parcel @parcel/config-storybook
 ```
 
 2. Create a Parcel config file in your Storybook folder, e.g. `.storybook/.parcelrc`:
 
 ```json
 {
-  "extends": "parcel-config-storybook"
+  "extends": "@parcel/config-storybook"
 }
 ```
 

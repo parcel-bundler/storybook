@@ -1,9 +1,13 @@
 {
-  "name": "parcel-transformer-storybook",
+  "name": "@parcel/transformer-storybook",
   "version": "0.0.0",
-  "main": "StoryTransformer.ts",
+  "main": "dist/StoryTransformer.js",
+  "source": "StoryTransformer.ts",
   "engines": {
     "parcel": "^2.8.0"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "dependencies": {
     "@parcel/plugin": "^2.10.2",
@@ -12,5 +16,9 @@
     "@babel/types": "^7.23.0",
     "react-docgen-typescript": "^2.2.2",
     "typescript": "^5.7.2"
+  },
+  "scripts": {
+    "build": "rm -rf dist && swc . -d dist --config-file ../../.swcrc",
+    "clean": "rm -rf dist"
   }
 }
