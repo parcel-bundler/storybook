@@ -84,7 +84,7 @@ async function createParcel(options, isDev = false) {
 
   return new Parcel({
     entries: path.join(generatedEntries, "iframe.html"),
-    defaultConfig: require.resolve('parcel-config-storybook'),
+    config: path.resolve(options.configDir, ".parcelrc"),
     mode: isDev ? "development" : "production",
     serveOptions: isDev
       ? {

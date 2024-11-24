@@ -90,47 +90,49 @@ function processCsf(code: string, filePath: string, docs: ComponentDoc | null, r
     }
   };
 
-  for (let name in csf._storyExports) {
-    let node = csf.getStoryExport(name);
+  if (refreshName) {
+    for (let name in csf._storyExports) {
+      let node = csf.getStoryExport(name);
 
-    // Generate a hash of the args and parameters. If this changes, we bail out of Fast Refresh.
-    let annotations = csf._storyAnnotations[name];
-    let storyHash = '';
-    if (annotations) {
-      let hash = crypto.createHash('md5');
-      if (annotations.args) {
-        hash.update(code.slice(annotations.args.start!, annotations.args.end!));
+      // Generate a hash of the args and parameters. If this changes, we bail out of Fast Refresh.
+      let annotations = csf._storyAnnotations[name];
+      let storyHash = '';
+      if (annotations) {
+        let hash = crypto.createHash('md5');
+        if (annotations.args) {
+          hash.update(code.slice(annotations.args.start!, annotations.args.end!));
+        }
+        if (annotations.parameters) {
+          hash.update(code.slice(annotations.parameters.start!, annotations.parameters.end!));
+        }
+        storyHash = hash.digest('hex');
       }
-      if (annotations.parameters) {
-        hash.update(code.slice(annotations.parameters.start!, annotations.parameters.end!));
-      }
-      storyHash = hash.digest('hex');
-    }
 
-    if (t.isFunction(node)) {
-      // CSF 2 style function story.
-      let c = addComponent(node);
-      csf._ast.program.body.push(t.expressionStatement(
-        t.assignmentExpression(
-          '=',
-          t.memberExpression(t.identifier(name), t.identifier('_internalComponent')),
-          t.identifier(c)
-        )
-      ));
-
-      if (storyHash) {
+      if (t.isFunction(node)) {
+        // CSF 2 style function story.
+        let c = addComponent(node);
         csf._ast.program.body.push(t.expressionStatement(
           t.assignmentExpression(
             '=',
-            t.memberExpression(t.identifier(name), t.identifier('_hash')),
-            t.stringLiteral(storyHash)
+            t.memberExpression(t.identifier(name), t.identifier('_internalComponent')),
+            t.identifier(c)
           )
         ));
-      }
-    } else if (node.type === 'ObjectExpression') {
-      handleRenderProperty(node);
-      if (storyHash) {
-        node.properties.push(t.objectProperty(t.identifier('_hash'), t.stringLiteral(storyHash)));
+
+        if (storyHash) {
+          csf._ast.program.body.push(t.expressionStatement(
+            t.assignmentExpression(
+              '=',
+              t.memberExpression(t.identifier(name), t.identifier('_hash')),
+              t.stringLiteral(storyHash)
+            )
+          ));
+        }
+      } else if (node.type === 'ObjectExpression') {
+        handleRenderProperty(node);
+        if (storyHash) {
+          node.properties.push(t.objectProperty(t.identifier('_hash'), t.stringLiteral(storyHash)));
+        }
       }
     }
   }
@@ -147,13 +149,16 @@ function processCsf(code: string, filePath: string, docs: ComponentDoc | null, r
       }
     }
 
-    handleRenderProperty(csf._metaNode);
+    
+    if (refreshName) {
+      handleRenderProperty(csf._metaNode);
 
-    let hash = crypto.createHash('md5');
-    hash.update(code.slice(csf._metaNode.start!, csf._metaNode.end!));
-    hash.update(JSON.stringify(docs));
-    let metaHash = hash.digest('hex');
-    csf._metaNode.properties.push(t.objectProperty(t.identifier('_hash'), t.stringLiteral(metaHash)));
+      let hash = crypto.createHash('md5');
+      hash.update(code.slice(csf._metaNode.start!, csf._metaNode.end!));
+      hash.update(JSON.stringify(docs));
+      let metaHash = hash.digest('hex');
+      csf._metaNode.properties.push(t.objectProperty(t.identifier('_hash'), t.stringLiteral(metaHash)));
+    }
   }
 
   if (refreshName) {

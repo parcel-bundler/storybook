@@ -66,14 +66,13 @@ module.exports.postlude = function (module) {
         // We'll be conservative. The only case in which we won't do a full
         // reload is if all parent modules are also refresh boundaries.
         // In that case we'll add them to the current queue.
-        // var parents = getParents();
-        // console.log('pdofpdojpodjf', parents)
-        // if (parents.length === 0) {
+        var parents = getParents();
+        if (parents.length === 0) {
           // Looks like we bubbled to the root. Can't recover from that.
           window.location.reload();
-        //   return;
-        // }
-        // return parents;
+          return;
+        }
+        return parents;
       }
       enqueueUpdate();
     });

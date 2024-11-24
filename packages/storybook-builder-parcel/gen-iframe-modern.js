@@ -15,7 +15,7 @@ const TEMPLATE = `<!DOCTYPE html>
       window.STORIES = '[STORIES HERE]';
       window.DOCS_OPTIONS = '[DOCS_OPTIONS HERE]';
       window.SERVER_CHANNEL_URL = '[SERVER_CHANNEL_URL HERE]';
-      </script>
+    </script>
     <!-- [HEAD HTML SNIPPET HERE] -->
   </head>
   <body>

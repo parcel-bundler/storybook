@@ -2,9 +2,6 @@
   "name": "storybook-builder-parcel",
   "version": "0.0.0",
   "main": "preset.js",
-  "oldDeps": {
-    "@storybook/core-common": "6.5.12"
-  },
   "dependencies": {
     "@parcel/core": "^2.13.0",
     "@parcel/reporter-cli": "^2.13.0",
@@ -13,11 +10,9 @@
     "@storybook/core-common": "^7.6.4",
     "@storybook/preview": "^7.6.4",
     "@storybook/preview-api": "^7.6.4",
-    "http-proxy-middleware": "^2.0.6",
-    "parcel-config-storybook": "^0.0.0"
+    "http-proxy-middleware": "^2.0.6"
   },
   "peerDependencies": {
-    "@parcel/core": "^2.0.0",
     "react": "*"
   }
 }

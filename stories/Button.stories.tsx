@@ -14,7 +14,6 @@ type Story = StoryObj<typeof Button>;
 export const Primary: Story = {
   render: args => {
     let [count, setCount] = useState(0);
-    console.log(count)
     return <><Button {...args} label="Increment" onClick={() => setCount(count + 1)} /> {count}</>;
   },
   args: {
