@@ -3,8 +3,8 @@
   "version": "0.0.0",
   "main": "preset.js",
   "dependencies": {
-    "@parcel/core": "^2.13.0",
-    "@parcel/reporter-cli": "^2.13.0",
+    "@parcel/core": "^2.13.1",
+    "@parcel/reporter-cli": "^2.13.1",
     "@storybook/channels": "^7.6.4",
     "@storybook/client-logger": "^7.6.4",
     "@storybook/core-common": "^7.6.4",

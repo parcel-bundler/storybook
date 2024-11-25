@@ -9,7 +9,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@parcel/config-default": "^2.13.0",
+    "@parcel/config-default": "^2.13.1",
     "@parcel/resolver-storybook": "^0.0.0",
     "@parcel/transformer-storybook": "^0.0.0"
   },
