@@ -48,8 +48,19 @@ async function createService(options: PluginOptions) {
     socket.on('error', () => {});
   });
   
-  await new Promise<void>(resolve => {
-    server.listen(getSocketPath(options), () => resolve());
+  await new Promise<void>((resolve, reject) => {
+    let sock = getSocketPath(options);
+    server.listen(sock, () => resolve());
+    server.on('error', e => {
+      // @ts-ignore
+      if (e.code === 'EEXIST') {
+        // If the file already exists, but is not in use, delete it and try again.
+        fs.unlinkSync(sock);
+        server.listen(sock, () => resolve());
+      } else {
+        reject(e);
+      }
+    });
   });
 
   let compilerOptions = {

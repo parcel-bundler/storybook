@@ -115,7 +115,7 @@ function processPreviewAnnotation(path) {
  */
 async function toImportFn(stories, generatedEntries) {
   const entries = stories.map(glob => {
-    return `...import(${JSON.stringify('story:' + relativePath(generatedEntries, glob))})`;
+    return `...import(${JSON.stringify('story:' + btoa(relativePath(generatedEntries, glob)))})`;
   });
 
   return `

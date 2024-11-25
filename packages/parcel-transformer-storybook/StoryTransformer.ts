@@ -1,6 +1,7 @@
 import { Transformer } from '@parcel/plugin';
-import { loadCsf, enrichCsf, formatCsf } from '@storybook/csf-tools';
+import { enrichCsf, formatCsf, babelParse, CsfFile } from '@storybook/csf-tools';
 import * as t from '@babel/types';
+import {parse} from '@babel/parser';
 import path from 'path';
 import crypto from 'crypto';
 import { getClient, getCacheDir } from './react-docgen-typescript';
@@ -32,7 +33,14 @@ module.exports = new Transformer({
 });
 
 function processCsf(code: string, filePath: string, docs: ComponentDoc | null, refreshName: string | null) {
-  let csf = loadCsf(code, {
+  let ast = parse(code, {
+    sourceFilename: filePath,
+    sourceType: 'module',
+    plugins: ['typescript', 'jsx', 'importAttributes', 'classProperties'],
+    tokens: true
+  });
+
+  let csf = new CsfFile(ast, {
     fileName: filePath,
     makeTitle: title => title || 'default'
   }).parse();

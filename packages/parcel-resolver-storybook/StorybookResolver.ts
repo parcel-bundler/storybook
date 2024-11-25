@@ -25,9 +25,9 @@ module.exports = new Resolver({
 
     // Resolve story entry globs. Storybook expects an object with relative paths from the process cwd as keys.
     // We do this in a resolver so that it invalidates the watcher when new stories are created.
-    if (pipeline === 'story' && isGlob(specifier)) {
+    if (pipeline === 'story') {
       let sourceFile = dependency.resolveFrom ?? dependency.sourcePath!;
-      let normalized = normalizeSeparators(path.resolve(path.dirname(sourceFile), specifier));
+      let normalized = normalizeSeparators(path.resolve(path.dirname(sourceFile), atob(specifier)));
       let files = await glob(normalized, options.inputFS, {
         onlyFiles: true,
       });
