@@ -197,7 +197,7 @@ function wrapRefresh(program: t.Program, filePath: string, refreshName: string) 
         imports.push(statement);
       } else if (statement.declaration) {
         statements.push(statement.declaration);
-        for (let id in t.getBindingIdentifiers(statement.declaration)) {
+        for (let id in t.getOuterBindingIdentifiers(statement.declaration)) {
           let name = refreshName + '$Export' + exportVars.length;
           exportVars.push(t.variableDeclarator(t.identifier(name)));
           exports.push(t.exportSpecifier(t.identifier(name), t.identifier(id)));
