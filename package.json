@@ -19,5 +19,6 @@
     "storybook-builder-parcel": "*",
     "storybook-react-parcel": "*"
   },
-  "dependencies": {}
+  "dependencies": {},
+  "version": "0.0.0"
 }
