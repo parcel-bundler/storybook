@@ -193,7 +193,7 @@ function wrapRefresh(program: t.Program, filePath: string, refreshName: string) 
     if (t.isImportDeclaration(statement) || t.isExportAllDeclaration(statement)) {
       imports.push(statement);
     } else if (t.isExportNamedDeclaration(statement)) {
-      if (statement.source) {
+      if (statement.exportKind === 'type' || statement.source) {
         imports.push(statement);
       } else if (statement.declaration) {
         statements.push(statement.declaration);
