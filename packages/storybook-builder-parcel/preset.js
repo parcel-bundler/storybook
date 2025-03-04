@@ -6,8 +6,6 @@ const fs = require("fs");
 const { generateIframeModern } = require("./gen-iframe-modern.js");
 const { generatePreviewModern } = require("./gen-preview-modern.js");
 
-const generatedEntries = path.join(__dirname, "generated-entries");
-
 exports.start = async function ({ options, router }) {
   let parcel = await createParcel(options, true);
 
@@ -72,6 +70,8 @@ exports.previewPresets = [];
 exports.bail = async () => {};
 
 async function createParcel(options, isDev = false) {
+  const generatedEntries = path.join(options.outputDir, "generated-entries");
+  
   fs.mkdirSync(generatedEntries, { recursive: true });
   fs.writeFileSync(
     path.join(generatedEntries, "iframe.html"),
