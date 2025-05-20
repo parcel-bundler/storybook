@@ -5,11 +5,11 @@
   "dependencies": {
     "@parcel/core": "^2.13.1",
     "@parcel/reporter-cli": "^2.13.1",
-    "@storybook/channels": "^7.6.4",
-    "@storybook/client-logger": "^7.6.4",
-    "@storybook/core-common": "^7.6.4",
-    "@storybook/preview": "^7.6.4",
-    "@storybook/preview-api": "^7.6.4",
+    "@storybook/channels": "^8.6.7",
+    "@storybook/client-logger": "^8.6.7",
+    "@storybook/core-common": "^8.6.7",
+    "@storybook/preview": "^8.6.7",
+    "@storybook/preview-api": "^8.6.7",
     "http-proxy-middleware": "^2.0.6"
   },
   "peerDependencies": {

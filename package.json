@@ -10,15 +10,16 @@
     "clean": "yarn workspaces run clean"
   },
   "devDependencies": {
-    "@storybook/addon-essentials": "^7.6.4",
-    "@storybook/addon-interactions": "^7.6.4",
+    "@storybook/addon-essentials": "^8.6.7",
+    "@storybook/addon-interactions": "^8.6.7",
     "@swc/cli": "^0.5.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "storybook": "^7.6.4",
+    "storybook": "^8.6.7",
     "storybook-builder-parcel": "*",
     "storybook-react-parcel": "*"
   },
   "dependencies": {},
-  "version": "0.0.0"
+  "version": "0.0.0",
+  "packageManager": "yarn@1.22.19+sha512.ff4579ab459bb25aa7c0ff75b62acebe576f6084b36aa842971cf250a5d8c6cd3bc9420b22ce63c7f93a0857bc6ef29291db39c3e7a23aab5adfd5a4dd6c5d71"
 }

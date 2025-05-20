@@ -4,7 +4,7 @@
   "main": "preset.js",
   "dependencies": {
     "storybook-builder-parcel": "^0.0.1",
-    "@storybook/react": "^7.6.4"
+    "@storybook/react": "^8.6.7"
   },
   "scripts": {
     "build": "true",
