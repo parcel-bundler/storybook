@@ -32,15 +32,23 @@ module.exports.generatePreviewModern = async function generatePreviewModern(
    * @todo Inline variable and remove `noinspection`
    */
   const code = `
-  import { composeConfigs, PreviewWeb, ClientApi } from '@storybook/preview-api';
+  import { setup } from 'storybook/internal/preview/runtime';
 
-  // generateAddonSetupCode
-  import { createBrowserChannel } from '@storybook/channels';
-  import { addons } from '@storybook/preview-api';
+  setup();
+
+  import { createBrowserChannel } from 'storybook/internal/channels';
+  import { addons } from 'storybook/internal/preview-api';
 
   const channel = createBrowserChannel({ page: 'preview' });
   addons.setChannel(channel);
   window.__STORYBOOK_ADDONS_CHANNEL__ = channel;
+
+  if (window.CONFIG_TYPE === 'DEVELOPMENT'){
+    window.__STORYBOOK_SERVER_CHANNEL__ = channel;
+  }
+
+  import { composeConfigs, PreviewWeb } from 'storybook/internal/preview-api';
+  import { isPreview } from 'storybook/internal/csf';
 
   ${await generateImportFnScriptCode(options, generatedEntries)}
 
@@ -51,15 +59,11 @@ module.exports.generatePreviewModern = async function generatePreviewModern(
     return composeConfigs(configs);
   }
 
-  if (!window.__STORYBOOK_PREVIEW__) {
-    const preview = new PreviewWeb();
 
-    window.__STORYBOOK_PREVIEW__ = preview;
-    window.__STORYBOOK_STORY_STORE__ = preview.storyStore;
-    window.__STORYBOOK_CLIENT_API__ = new ClientApi({ storyStore: preview.storyStore });
+  window.__STORYBOOK_PREVIEW__ = window.__STORYBOOK_PREVIEW__ || new PreviewWeb(importFn, getProjectAnnotations);
 
-    preview.initialize({ importFn, getProjectAnnotations });
-  }
+  window.__STORYBOOK_STORY_STORE__ = window.__STORYBOOK_STORY_STORE__ || window.__STORYBOOK_PREVIEW__.storyStore;
+
 
   module.hot.accept(() => {
     // importFn has changed so we need to patch the new one in
