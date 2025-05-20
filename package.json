@@ -12,6 +12,9 @@
   "devDependencies": {
     "@storybook/addon-essentials": "^8.6.7",
     "@storybook/addon-interactions": "^8.6.7",
+    "@storybook/preview-api": "^8.6.7",
+    "@storybook/blocks": "^8.6.7",
+    "@storybook/instrumenter": "^8.6.7",
     "@swc/cli": "^0.5.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

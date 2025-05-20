@@ -1381,7 +1381,7 @@
   dependencies:
     memoizerific "^1.11.3"
 
-"@storybook/blocks@8.6.14":
+"@storybook/blocks@8.6.14", "@storybook/blocks@^8.6.7":
   version "8.6.14"
   resolved "https://registry.yarnpkg.com/@storybook/blocks/-/blocks-8.6.14.tgz#9d39e64f4fd0a446d96f1f5d6b220d4812fc05fa"
   integrity sha512-rBMHAfA39AGHgkrDze4RmsnQTMw1ND5fGWobr9pDcJdnDKWQWNRD7Nrlxj0gFlN3n4D9lEZhWGdFrCbku7FVAQ==
@@ -1533,7 +1533,7 @@
   resolved "https://registry.yarnpkg.com/@storybook/icons/-/icons-1.4.0.tgz#7cf7ab3dfb41943930954c4ef493a73798d8b31d"
   integrity sha512-Td73IeJxOyalzvjQL+JXx72jlIYHgs+REaHiREOqfpo3A2AYYG71AUbcv+lg7mEDIweKVCxsMQ0UKo634c8XeA==
 
-"@storybook/instrumenter@8.6.14":
+"@storybook/instrumenter@8.6.14", "@storybook/instrumenter@^8.6.7":
   version "8.6.14"
   resolved "https://registry.yarnpkg.com/@storybook/instrumenter/-/instrumenter-8.6.14.tgz#85bf47e34348f17dfbb99080312eefb2f535bd65"
   integrity sha512-iG4MlWCcz1L7Yu8AwgsnfVAmMbvyRSk700Mfy2g4c8y5O+Cv1ejshE1LBBsCwHgkuqU0H4R0qu4g23+6UnUemQ==
@@ -4182,6 +4182,7 @@ streamx@^2.15.0:
     bare-events "^2.2.0"
 
 "string-width-cjs@npm:string-width@^4.2.0", string-width@^4.1.0:
+  name string-width-cjs
   version "4.2.3"
   resolved "https://registry.yarnpkg.com/string-width/-/string-width-4.2.3.tgz#269c7117d27b05ad2e536830a8ec895ef9c6d010"
   integrity sha512-wKyQRQpjJ0sIp62ErSZdGsjMJWsap5oRNihHhu6G7JVO/9jIB6UyevL+tXuOqrng8j/cxKTWyWUwvSTriiZz/g==
@@ -4200,6 +4201,7 @@ string-width@^5.0.1, string-width@^5.1.2:
     strip-ansi "^7.0.1"
 
 "strip-ansi-cjs@npm:strip-ansi@^6.0.1", strip-ansi@^6.0.0, strip-ansi@^6.0.1:
+  name strip-ansi-cjs
   version "6.0.1"
   resolved "https://registry.yarnpkg.com/strip-ansi/-/strip-ansi-6.0.1.tgz#9e26c63d30f53443e9489495b2105d37b67a85d9"
   integrity sha512-Y38VPSHcqkFrCpFnQ9vuSXmquuv5oXOKpGeT6aGrr3o3Gc9AlVa6JBfUSOCnbxGGZF+/0ooI7KrPuUSztUdU5A==

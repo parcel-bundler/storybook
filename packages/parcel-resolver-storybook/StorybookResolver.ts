@@ -56,6 +56,7 @@ module.exports = new Resolver({
 
     // Workaround for pkg#exports support
     let rewritten;
+
     if (
       specifier.startsWith("@storybook/addon-essentials") &&
       specifier.endsWith("preview")
@@ -63,6 +64,34 @@ module.exports = new Resolver({
       rewritten = specifier.replace(
         "@storybook/addon-essentials",
         "@storybook/addon-essentials/dist"
+      );
+    }
+
+    if (
+      specifier.startsWith("@storybook/react") &&
+      specifier.endsWith("preview")
+    ) {
+      rewritten = specifier.replace(
+        "@storybook/react",
+        "@storybook/react/dist"
+      );
+    }
+
+    if (
+      specifier.startsWith("@storybook/core")
+    ) {
+      rewritten = specifier.replace(
+        "@storybook/core",
+        "@storybook/core/dist"
+      );
+    }
+
+    if (
+      specifier.startsWith("storybook/internal")
+    ) {
+      rewritten = specifier.replace(
+        "storybook/internal",
+        "storybook/core"
       );
     }
     if (rewritten) {
