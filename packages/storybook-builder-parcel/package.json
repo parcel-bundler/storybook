@@ -10,7 +10,8 @@
     "@storybook/core-common": "^8.6.7",
     "@storybook/preview": "^8.6.7",
     "@storybook/preview-api": "^8.6.7",
-    "http-proxy-middleware": "^2.0.6"
+    "http-proxy-middleware": "^2.0.6",
+    "storybook": "^8.6.7"
   },
   "peerDependencies": {
     "react": "*"
