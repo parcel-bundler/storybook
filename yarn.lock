@@ -1352,12 +1352,12 @@
     "@storybook/icons" "^1.2.12"
     ts-dedent "^2.0.0"
 
-"@storybook/channels@^8.6.7":
+"@storybook/channels@^8.6.14":
   version "8.6.14"
   resolved "https://registry.yarnpkg.com/@storybook/channels/-/channels-8.6.14.tgz#35f83d4d7618c5c96c6af53efcef327898b2f912"
   integrity sha512-vIpR+Yii1urfL+aVAIj4Wbfv/dbO8yfGd70LaIQSgHiFQqN2/BCrst65UfeQxLUVlFiKY70ll6ll3/2JFj3Cag==
 
-"@storybook/client-logger@^8.6.7":
+"@storybook/client-logger@^8.6.14":
   version "8.6.14"
   resolved "https://registry.yarnpkg.com/@storybook/client-logger/-/client-logger-8.6.14.tgz#2b067b606c4ad5c07458c9d76b0b3a63abe94f76"
   integrity sha512-DqB54TiXr58nCS2QO2YxxY14uc0yGEhgTgtw1eIGFEC1RKxgbOos+4lDtwhU7EYI6kHewVlZ4NXi85wnj/Qq+A==
@@ -1367,7 +1367,7 @@
   resolved "https://registry.yarnpkg.com/@storybook/components/-/components-8.6.14.tgz#3cfc5e120f3dc38990fc37b34a22eff1e3f4bdfb"
   integrity sha512-HNR2mC5I4Z5ek8kTrVZlIY/B8gJGs5b3XdZPBPBopTIN6U/YHXiDyOjY3JlaS4fSG1fVhp/Qp1TpMn1w/9m1pw==
 
-"@storybook/core-common@^8.6.7":
+"@storybook/core-common@^8.6.14":
   version "8.6.14"
   resolved "https://registry.yarnpkg.com/@storybook/core-common/-/core-common-8.6.14.tgz#c7f7f5f800c55114f6724350ac77cf37e9601a97"
   integrity sha512-Q1rSAFnuZcisoWqE1tmLSsXtPUIC0BC00VPCdpvoeNBOyBbye4JCeARbqr3utQSMrXJJ25D8Qt9rc0f2gwbg2w==
@@ -1429,12 +1429,12 @@
   resolved "https://registry.yarnpkg.com/@storybook/manager-api/-/manager-api-8.6.14.tgz#1e0740193fbfd4a66e9ff5f75c7f976e16028752"
   integrity sha512-ez0Zihuy17udLbfHZQXkGqwtep0mSGgHcNzGN7iZrMP1m+VmNo+7aGCJJdvXi7+iU3yq8weXSQFWg5DqWgLS7g==
 
-"@storybook/preview-api@8.6.14", "@storybook/preview-api@^8.6.7":
+"@storybook/preview-api@8.6.14", "@storybook/preview-api@^8.6.14", "@storybook/preview-api@^8.6.7":
   version "8.6.14"
   resolved "https://registry.yarnpkg.com/@storybook/preview-api/-/preview-api-8.6.14.tgz#b4a1eda7ecf17c4d3a07aa9a42ed1251de121f74"
   integrity sha512-2GhcCd4dNMrnD7eooEfvbfL4I83qAqEyO0CO7JQAmIO6Rxb9BsOLLI/GD5HkvQB73ArTJ+PT50rfaO820IExOQ==
 
-"@storybook/preview@^8.6.7":
+"@storybook/preview@^8.6.14":
   version "8.6.14"
   resolved "https://registry.yarnpkg.com/@storybook/preview/-/preview-8.6.14.tgz#18fa02d3c4e59852643aee57ac618df285c52fb5"
   integrity sha512-DFWqOMHi/aLGBaHC+pEpG4QiAORFj8i3vSOYbcPKBzXBnxZCOS/YijJmh1WwNyKqVBox/2wz+/BHiLBSRZ3Jqg==
@@ -1444,7 +1444,7 @@
   resolved "https://registry.yarnpkg.com/@storybook/react-dom-shim/-/react-dom-shim-8.6.14.tgz#02fc8aeab701040744d93b6ef46b9e5727123370"
   integrity sha512-0hixr3dOy3f3M+HBofp3jtMQMS+sqzjKNgl7Arfuj3fvjmyXOks/yGjDImySR4imPtEllvPZfhiQNlejheaInw==
 
-"@storybook/react@^8.6.7":
+"@storybook/react@^8.6.14":
   version "8.6.14"
   resolved "https://registry.yarnpkg.com/@storybook/react/-/react-8.6.14.tgz#80136abcbc6e96ef5f747aef5c4e6afc40b3dce4"
   integrity sha512-BOepx5bBFwl/CPI+F+LnmMmsG1wQYmrX/UQXgUbHQUU9Tj7E2ndTnNbpIuSLc8IrM03ru+DfwSg1Co3cxWtT+g==
@@ -3394,7 +3394,7 @@ srcset@4:
   resolved "https://registry.yarnpkg.com/srcset/-/srcset-4.0.0.tgz#336816b665b14cd013ba545b6fe62357f86e65f4"
   integrity sha512-wvLeHgcVHKO8Sc/H/5lkGreJQVeYMm9rlmt8PuR1xE31rIuXhuzznUUqAt8MqLhB3MqJdFzlNAfpcWnxiFUcPw==
 
-storybook@^8.6.7:
+storybook@^8.6.14, storybook@^8.6.7:
   version "8.6.14"
   resolved "https://registry.yarnpkg.com/storybook/-/storybook-8.6.14.tgz#d205e73b6427eebf321bcfbe63bfbec3ade4d9db"
   integrity sha512-sVKbCj/OTx67jhmauhxc2dcr1P+yOgz/x3h0krwjyMgdc5Oubvxyg4NYDZmzAw+ym36g/lzH8N0Ccp4dwtdfxw==
