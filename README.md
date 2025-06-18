@@ -33,6 +33,16 @@ module.exports = {
 };
 ```
 
+4. Enable [package exports](https://nodejs.org/api/packages.html#conditional-exports) in [Parcel](https://parceljs.org/features/dependency-resolution/#package-exports)
+
+```json package.json
+  "@parcel/resolver-default": {
+    "packageExports": true
+  }
+```
+
+5. If you are using the storybook addon-a11y, you will need to patch it. See https://github.com/adobe/react-spectrum/pull/8272/commits/1e9a68a4e42463655742c41a64d612081c60ba20
+
 See the example in this repo for more details.
 
 ## Acknowledgements
