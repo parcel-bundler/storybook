@@ -2,9 +2,9 @@
 
 A [Storybook Builder](https://storybook.js.org/docs/builders) integration that uses Parcel as the bundler.
 
-* Custom transformer to support [React Fast Refresh](https://reactnative.dev/docs/fast-refresh) in CSF story files. This enables you to edit your components **or stories** without losing state.
-* Support for auto-generating controls and docs from TypeScript via [react-docgen-typescript](https://github.com/styleguidist/react-docgen-typescript), with hot reloading when your types change.
-* Enhances CSF with automatic annotation of original story source code and description
+- Custom transformer to support [React Fast Refresh](https://reactnative.dev/docs/fast-refresh) in CSF story files. This enables you to edit your components **or stories** without losing state.
+- Support for auto-generating controls and docs from TypeScript via [react-docgen-typescript](https://github.com/styleguidist/react-docgen-typescript), with hot reloading when your types change.
+- Enhances CSF with automatic annotation of original story source code and description
 
 ## Setup
 

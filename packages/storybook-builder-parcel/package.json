@@ -2,6 +2,10 @@
   "name": "storybook-builder-parcel",
   "version": "0.0.1",
   "main": "preset.js",
+  "scripts": {
+    "build": "true",
+    "clean": "true"
+  },
   "dependencies": {
     "@parcel/core": "^2.13.1",
     "@parcel/reporter-cli": "^2.13.1",
@@ -15,9 +19,5 @@
   },
   "peerDependencies": {
     "react": "*"
-  },
-  "scripts": {
-    "build": "true",
-    "clean": "true"
   }
 }

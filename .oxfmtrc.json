@@ -1,0 +1,15 @@
+{
+  "$schema": "./node_modules/oxfmt/configuration_schema.json",
+  "singleQuote": true,
+  "bracketSpacing": false,
+  "trailingComma": "none",
+  "bracketSameLine": true,
+  "arrowParens": "avoid",
+  "jsdoc": {
+    "addDefaultToDescription": false,
+    "capitalizeDescriptions": true,
+    "commentLineStrategy": "keep",
+    "descriptionWithDot": true,
+    "lineWrappingStyle": "balance"
+  }
+}
