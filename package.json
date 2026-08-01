@@ -13,16 +13,12 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "@storybook/addon-essentials": "^8.6.7",
-    "@storybook/addon-interactions": "^8.6.7",
-    "@storybook/blocks": "^8.6.7",
-    "@storybook/instrumenter": "^8.6.7",
-    "@storybook/preview-api": "^8.6.7",
     "@swc/cli": "^0.5.1",
     "oxfmt": "^0.48.0",
+    "process": "^0.11.10",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "storybook": "^8.6.7",
+    "storybook": "^10.0.0",
     "storybook-builder-parcel": "*",
     "storybook-react-parcel": "*"
   },
