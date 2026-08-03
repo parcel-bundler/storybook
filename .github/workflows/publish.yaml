@@ -1,6 +1,9 @@
 name: build
 
 on:
+  push:
+    branches:
+      - "parcel3"
   workflow_dispatch:
 
 permissions:
