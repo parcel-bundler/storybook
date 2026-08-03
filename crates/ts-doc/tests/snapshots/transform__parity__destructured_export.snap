@@ -1,0 +1,20 @@
+---
+source: tests/transform.rs
+expression: "transform(\"index\", \"export const {a, b} = obj;\")"
+---
+{
+  "dependencies": [],
+  "types": [
+    {
+      "type": "any"
+    },
+    {
+      "type": "any"
+    }
+  ],
+  "exports": {
+    "a": 0,
+    "b": 1
+  },
+  "export_all": []
+}

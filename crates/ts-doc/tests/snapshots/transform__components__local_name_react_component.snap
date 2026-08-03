@@ -1,0 +1,36 @@
+---
+source: tests/transform.rs
+expression: "transform(\"index\",\n\"import React from 'react';\\n\\nfunction App2(props) {\\n  return <div />;\\n}\\nexport {App2 as AppReal};\")"
+---
+{
+  "dependencies": [],
+  "types": [
+    {
+      "type": "reference",
+      "specifier": "react",
+      "imported": "default",
+      "local": "React"
+    },
+    {
+      "type": "any"
+    },
+    {
+      "type": "any"
+    },
+    {
+      "type": "component",
+      "id": "/test/src/index.tsx:App2",
+      "name": "AppReal",
+      "props": 1,
+      "typeParameters": [],
+      "ref": null,
+      "description": null,
+      "access": null,
+      "examples": []
+    }
+  ],
+  "exports": {
+    "AppReal": 3
+  },
+  "export_all": []
+}

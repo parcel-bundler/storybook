@@ -1,0 +1,22 @@
+[package]
+name = "ts-doc"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+swc_core = { version = "75", features = [
+  "common",
+  "common_sourcemap",
+  "ecma_ast",
+  "ecma_parser",
+  "ecma_transforms",
+  "ecma_visit",
+] }
+serde = { version = "1", features = ["derive", "rc"] }
+indexmap = { version = "2", features = ["serde"] }
+parcel-resolver = { git = "https://github.com/parcel-bundler/parcel.git" }
+serde_json = "1"
+
+[dev-dependencies]
+indoc = "2"
+insta = { version = "1", features = ["json"] }

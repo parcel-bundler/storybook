@@ -1,0 +1,36 @@
+---
+source: tests/package.rs
+expression: "package_one(\"export type Foo = `${number}%`;\")"
+---
+{
+  "exports": {
+    "Foo": {
+      "type": "link",
+      "id": "/test/src/index.tsx:Foo"
+    }
+  },
+  "links": {
+    "/test/src/index.tsx:Foo": {
+      "type": "alias",
+      "id": "/test/src/index.tsx:Foo",
+      "name": "Foo",
+      "value": {
+        "type": "template",
+        "elements": [
+          {
+            "type": "string",
+            "value": ""
+          },
+          {
+            "type": "number"
+          },
+          {
+            "type": "string",
+            "value": "%"
+          }
+        ]
+      },
+      "typeParameters": []
+    }
+  }
+}

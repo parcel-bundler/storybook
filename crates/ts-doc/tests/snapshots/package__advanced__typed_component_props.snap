@@ -1,0 +1,31 @@
+---
+source: tests/package.rs
+expression: "package_one(\"export function C(props: {x: number}): JSX.Element {\\n  return null;\\n}\")"
+---
+{
+  "exports": {
+    "C": {
+      "type": "component",
+      "id": "/test/src/index.tsx:C",
+      "name": "C",
+      "props": {
+        "type": "object",
+        "properties": {
+          "x": {
+            "type": "property",
+            "name": "x",
+            "indexType": null,
+            "value": {
+              "type": "number"
+            },
+            "optional": false,
+            "default": null
+          }
+        }
+      },
+      "typeParameters": [],
+      "ref": null
+    }
+  },
+  "links": {}
+}

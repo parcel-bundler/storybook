@@ -1,0 +1,61 @@
+---
+source: tests/transform.rs
+expression: "transform(\"index\",\n\"import {Column, SpectrumColumnProps} from './column';\\nconst SpectrumColumn = Column as <T>(props: SpectrumColumnProps<T>) => React.JSX.Element;\\nexport {SpectrumColumn as Column};\")"
+---
+{
+  "dependencies": [
+    "./column"
+  ],
+  "types": [
+    {
+      "type": "reference",
+      "specifier": "./column",
+      "imported": "Column",
+      "local": "Column"
+    },
+    {
+      "type": "reference",
+      "specifier": "./column",
+      "imported": "SpectrumColumnProps",
+      "local": "SpectrumColumnProps"
+    },
+    {
+      "type": "typeparameter",
+      "name": "T",
+      "constraint": null,
+      "default": null
+    },
+    {
+      "type": "application",
+      "base": 1,
+      "typeParameters": [
+        2
+      ]
+    },
+    {
+      "type": "identifier",
+      "name": "React"
+    },
+    {
+      "type": "identifier",
+      "name": "React.JSX.Element"
+    },
+    {
+      "type": "component",
+      "id": "/test/src/index.tsx:SpectrumColumn",
+      "name": "Column",
+      "props": 3,
+      "typeParameters": [
+        2
+      ],
+      "ref": null,
+      "description": null,
+      "access": null,
+      "examples": []
+    }
+  ],
+  "exports": {
+    "Column": 6
+  },
+  "export_all": []
+}

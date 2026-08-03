@@ -1,0 +1,27 @@
+{
+  "name": "@parcel/transformer-storybook-v3",
+  "description": "Parcel v3 transformer for storybook",
+  "version": "0.0.0",
+  "license": "MIT",
+  "repository": "https://github.com/parcel-bundler/storybook",
+  "files": [
+    "csf-hmr.js",
+    "to-react-docgen.js"
+  ],
+  "engines": {
+    "parcel": "^3"
+  },
+  "parcel": {
+    "abi": 1,
+    "devLibrary": "../../target/release/libparcel_plugin_storybook",
+    "artifacts": {
+      "aarch64-apple-darwin": "@parcel/transformer-storybook-darwin-arm64",
+      "x86_64-apple-darwin": "@parcel/transformer-storybook-darwin-x64",
+      "x86_64-pc-windows-msvc": "@parcel/transformer-storybook-win32-x64-msvc",
+      "x86_64-unknown-linux-gnu": "@parcel/transformer-storybook-linux-x64-gnu",
+      "aarch64-unknown-linux-gnu": "@parcel/transformer-storybook-linux-arm64-gnu",
+      "x86_64-unknown-linux-musl": "@parcel/transformer-storybook-linux-x64-musl",
+      "aarch64-unknown-linux-musl": "@parcel/transformer-storybook-linux-arm64-musl"
+    }
+  }
+}

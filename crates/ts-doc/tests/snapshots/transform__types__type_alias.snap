@@ -1,0 +1,26 @@
+---
+source: tests/transform.rs
+expression: "transform(\"index\", \"export type Foo = number;\")"
+---
+{
+  "dependencies": [],
+  "types": [
+    {
+      "type": "number",
+      "value": null
+    },
+    {
+      "type": "alias",
+      "id": "/test/src/index.tsx:Foo",
+      "name": "Foo",
+      "value": 0,
+      "typeParameters": [],
+      "description": null,
+      "access": null
+    }
+  ],
+  "exports": {
+    "Foo": 1
+  },
+  "export_all": []
+}

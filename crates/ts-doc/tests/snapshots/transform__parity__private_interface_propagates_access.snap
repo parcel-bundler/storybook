@@ -1,0 +1,58 @@
+---
+source: tests/transform.rs
+expression: "transform(\"index\",\n\"/** @private */\\nexport interface Secret {\\n  a: number;\\n  b: string;\\n}\")"
+---
+{
+  "dependencies": [],
+  "types": [
+    {
+      "type": "number",
+      "value": null
+    },
+    {
+      "type": "string",
+      "value": null
+    },
+    {
+      "type": "interface",
+      "id": "/test/src/index.tsx:Secret",
+      "name": "Secret",
+      "extends": [],
+      "properties": {
+        "a": {
+          "name": "a",
+          "indexType": null,
+          "value": 0,
+          "optional": false,
+          "isMethod": false,
+          "static": false,
+          "abstract": false,
+          "description": null,
+          "access": "private",
+          "selector": null,
+          "default": null
+        },
+        "b": {
+          "name": "b",
+          "indexType": null,
+          "value": 1,
+          "optional": false,
+          "isMethod": false,
+          "static": false,
+          "abstract": false,
+          "description": null,
+          "access": "private",
+          "selector": null,
+          "default": null
+        }
+      },
+      "typeParameters": [],
+      "description": null,
+      "access": "private"
+    }
+  ],
+  "exports": {
+    "Secret": 2
+  },
+  "export_all": []
+}

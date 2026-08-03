@@ -1,0 +1,28 @@
+---
+source: tests/package.rs
+expression: "package_one(\"export interface Foo {\\n  a: number\\n};\")"
+---
+{
+  "exports": {
+    "Foo": {
+      "type": "interface",
+      "id": "/test/src/index.tsx:Foo",
+      "name": "Foo",
+      "extends": [],
+      "properties": {
+        "a": {
+          "type": "property",
+          "name": "a",
+          "indexType": null,
+          "value": {
+            "type": "number"
+          },
+          "optional": false,
+          "default": null
+        }
+      },
+      "typeParameters": []
+    }
+  },
+  "links": {}
+}

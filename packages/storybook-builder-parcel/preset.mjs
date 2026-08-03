@@ -19,6 +19,8 @@ import {spawn} from 'node:child_process';
 import {generateIframeModern} from './gen-iframe-modern.mjs';
 import {generatePreviewModern, generateSetupAddons} from './gen-preview-modern.mjs';
 
+const PARCEL_V3 = Boolean(process.env.PARCEL_V3);
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const generatedEntries = path.join(__dirname, 'generated-entries');
@@ -67,15 +69,19 @@ export async function start({options, router}) {
     req.connection = connection;
   });
 
-  watcherSubscription = await parcel.watch();
-  process.on('SIGINT', async () => {
-    await watcherSubscription?.unsubscribe();
-    process.exit();
-  });
+  if (!PARCEL_V3) {
+    watcherSubscription = await parcel.watch();
+    process.on('SIGINT', async () => {
+      await watcherSubscription?.unsubscribe();
+      process.exit();
+    });
+  }
 
   return {
     async bail() {
-      await watcherSubscription?.unsubscribe();
+      if (!PARCEL_V3) {
+        await watcherSubscription?.unsubscribe();
+      }
     },
     stats: {},
     totalTime: 0
@@ -118,28 +124,46 @@ async function createParcel(options, isDev = false) {
     await generatePreviewModern(options, generatedEntries)
   );
 
-  return new Parcel({
-    entries: path.join(generatedEntries, 'iframe.html'),
-    config: path.resolve(options.configDir, '.parcelrc'),
-    mode: isDev ? 'development' : 'production',
-    serveOptions: isDev ? {port: 3000} : null,
-    hmrOptions: isDev ? {port: 3001} : null,
-    additionalReporters: [
-      {packageName: '@parcel/reporter-cli', resolveFrom: __filename},
-    ],
-    targets: {
-      storybook: {
-        distDir: options.outputDir,
-        publicUrl: './',
-        engines: {
-          browsers: [
-            'last 2 Chrome version',
-            'last 2 Safari versions',
-            'last 2 Edge version',
-            'last 2 Firefox versions'
-          ]
+  if (PARCEL_V3) {
+    spawn('parcel-v3/parcel', [
+      isDev ? 'serve' : 'build',
+      '--config', path.resolve(options.configDir, '.parcelrc-v3'),
+      '-p', '3000',
+      path.join(generatedEntries, 'iframe.html')
+    ], { stdio: 'inherit' });
+  } else {
+    return new Parcel({
+      entries: path.join(generatedEntries, 'iframe.html'),
+      config: path.resolve(options.configDir, '.parcelrc'),
+      mode: isDev ? 'development' : 'production',
+      serveOptions: isDev ? {port: 3000} : null,
+      hmrOptions: isDev ? {port: 3001} : null,
+      additionalReporters: [
+        {packageName: '@parcel/reporter-cli', resolveFrom: __filename},
+        // TODO
+        // ...(options.statsJson
+        //   ? [
+        //       {
+        //         packageName: 'parcel-reporter-turbosnap-stats',
+        //         resolveFrom: __filename
+        //       }
+        //     ]
+        //   : [])
+      ],
+      targets: {
+        storybook: {
+          distDir: options.outputDir,
+          publicUrl: './',
+          engines: {
+            browsers: [
+              'last 2 Chrome version',
+              'last 2 Safari versions',
+              'last 2 Edge version',
+              'last 2 Firefox versions'
+            ]
+          }
         }
       }
-    }
-  });
+    });
+  }
 }

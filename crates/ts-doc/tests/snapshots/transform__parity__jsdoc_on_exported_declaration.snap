@@ -1,0 +1,38 @@
+---
+source: tests/transform.rs
+expression: "transform(\"index\", \"/** My docs */\\nexport function foo(a) { return a; }\")"
+---
+{
+  "dependencies": [],
+  "types": [
+    {
+      "type": "any"
+    },
+    {
+      "type": "any"
+    },
+    {
+      "type": "function",
+      "id": "/test/src/index.tsx:foo",
+      "name": "foo",
+      "parameters": [
+        {
+          "name": "a",
+          "value": 0,
+          "optional": false,
+          "rest": false,
+          "description": null
+        }
+      ],
+      "return": 1,
+      "typeParameters": [],
+      "description": "My docs",
+      "access": null,
+      "examples": []
+    }
+  ],
+  "exports": {
+    "foo": 2
+  },
+  "export_all": []
+}

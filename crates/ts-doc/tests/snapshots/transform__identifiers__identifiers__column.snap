@@ -1,0 +1,96 @@
+---
+source: tests/transform.rs
+expression: "transform(\"column\",\n\"export interface SpectrumColumnProps<T> {id: string};\\nexport let Column = (props: {id: string}) => null;\")"
+---
+{
+  "dependencies": [],
+  "types": [
+    {
+      "type": "typeparameter",
+      "name": "T",
+      "constraint": null,
+      "default": null
+    },
+    {
+      "type": "string",
+      "value": null
+    },
+    {
+      "type": "interface",
+      "id": "/test/src/column.tsx:SpectrumColumnProps",
+      "name": "SpectrumColumnProps",
+      "extends": [],
+      "properties": {
+        "id": {
+          "name": "id",
+          "indexType": null,
+          "value": 1,
+          "optional": false,
+          "isMethod": false,
+          "static": false,
+          "abstract": false,
+          "description": null,
+          "access": null,
+          "selector": null,
+          "default": null
+        }
+      },
+      "typeParameters": [
+        0
+      ],
+      "description": null,
+      "access": null
+    },
+    {
+      "type": "string",
+      "value": null
+    },
+    {
+      "type": "object",
+      "properties": {
+        "id": {
+          "name": "id",
+          "indexType": null,
+          "value": 3,
+          "optional": false,
+          "isMethod": false,
+          "static": false,
+          "abstract": false,
+          "description": null,
+          "access": null,
+          "selector": null,
+          "default": null
+        }
+      },
+      "description": null,
+      "access": null
+    },
+    {
+      "type": "any"
+    },
+    {
+      "type": "function",
+      "id": null,
+      "name": null,
+      "parameters": [
+        {
+          "name": "props",
+          "value": 4,
+          "optional": false,
+          "rest": false,
+          "description": null
+        }
+      ],
+      "return": 5,
+      "typeParameters": [],
+      "description": null,
+      "access": null,
+      "examples": []
+    }
+  ],
+  "exports": {
+    "SpectrumColumnProps": 2,
+    "Column": 6
+  },
+  "export_all": []
+}

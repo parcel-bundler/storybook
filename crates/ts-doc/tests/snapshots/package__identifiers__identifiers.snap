@@ -1,0 +1,49 @@
+---
+source: tests/package.rs
+expression: "package_many(&[(\"/test/src/index.tsx\",\n\"import {Column, SpectrumColumnProps} from './column';\\nconst SpectrumColumn = Column as <T>(props: SpectrumColumnProps<T>) => React.JSX.Element;\\nexport {SpectrumColumn as Column};\"),\n(\"/test/src/column.tsx\",\n\"export interface SpectrumColumnProps<T> {id: string};\\nexport let Column = (props: {id: string}) => null;\"),])"
+---
+{
+  "exports": {
+    "Column": {
+      "type": "component",
+      "id": "/test/src/index.tsx:SpectrumColumn",
+      "name": "Column",
+      "props": {
+        "type": "interface",
+        "id": "/test/src/column.tsx:SpectrumColumnProps",
+        "name": "SpectrumColumnProps",
+        "extends": [],
+        "properties": {
+          "id": {
+            "type": "property",
+            "name": "id",
+            "indexType": null,
+            "value": {
+              "type": "string"
+            },
+            "optional": false,
+            "default": null
+          }
+        },
+        "typeParameters": [
+          {
+            "type": "typeParameter",
+            "name": "T",
+            "constraint": null,
+            "default": null
+          }
+        ]
+      },
+      "typeParameters": [
+        {
+          "type": "typeParameter",
+          "name": "T",
+          "constraint": null,
+          "default": null
+        }
+      ],
+      "ref": null
+    }
+  },
+  "links": {}
+}

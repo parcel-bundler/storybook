@@ -1,0 +1,12 @@
+[package]
+name = "parcel-plugin-ts-doc"
+version = "0.1.0"
+edition = "2024"
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+ts-doc = { path = "../ts-doc" }
+serde_json = "1"
+parcel-plugin = { git = "https://github.com/parcel-bundler/parcel.git", branch = "core-rs3" }

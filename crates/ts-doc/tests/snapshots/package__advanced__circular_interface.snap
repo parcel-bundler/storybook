@@ -1,0 +1,70 @@
+---
+source: tests/package.rs
+expression: "package_one(\"export interface Tree {\\n  value: number;\\n  child: Tree;\\n}\")"
+---
+{
+  "exports": {
+    "Tree": {
+      "type": "interface",
+      "id": "/test/src/index.tsx:Tree",
+      "name": "Tree",
+      "extends": [],
+      "properties": {
+        "value": {
+          "type": "property",
+          "name": "value",
+          "indexType": null,
+          "value": {
+            "type": "number"
+          },
+          "optional": false,
+          "default": null
+        },
+        "child": {
+          "type": "property",
+          "name": "child",
+          "indexType": null,
+          "value": {
+            "type": "link",
+            "id": "/test/src/index.tsx:Tree"
+          },
+          "optional": false,
+          "default": null
+        }
+      },
+      "typeParameters": []
+    }
+  },
+  "links": {
+    "/test/src/index.tsx:Tree": {
+      "type": "interface",
+      "id": "/test/src/index.tsx:Tree",
+      "name": "Tree",
+      "extends": [],
+      "properties": {
+        "value": {
+          "type": "property",
+          "name": "value",
+          "indexType": null,
+          "value": {
+            "type": "number"
+          },
+          "optional": false,
+          "default": null
+        },
+        "child": {
+          "type": "property",
+          "name": "child",
+          "indexType": null,
+          "value": {
+            "type": "link",
+            "id": "/test/src/index.tsx:Tree"
+          },
+          "optional": false,
+          "default": null
+        }
+      },
+      "typeParameters": []
+    }
+  }
+}

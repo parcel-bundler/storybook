@@ -1,0 +1,21 @@
+---
+source: tests/package.rs
+expression: "package_one(\"/**\\n * Does a thing.\\n * @returns whether it worked\\n */\\nexport function f(): boolean {\\n  return true;\\n}\")"
+---
+{
+  "exports": {
+    "f": {
+      "type": "function",
+      "id": "/test/src/index.tsx:f",
+      "name": "f",
+      "parameters": [],
+      "return": {
+        "type": "boolean",
+        "description": "whether it worked"
+      },
+      "typeParameters": [],
+      "description": "Does a thing."
+    }
+  },
+  "links": {}
+}

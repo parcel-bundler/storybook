@@ -3,6 +3,8 @@ import {Buffer} from 'node:buffer';
 import {createRequire} from 'node:module';
 import {loadPreviewOrConfigFile, normalizeStories} from 'storybook/internal/common';
 
+const PARCEL_V3 = Boolean(process.env.PARCEL_V3);
+
 // @parcel/utils is CJS-only; use createRequire to load it from ESM
 const _require = createRequire(import.meta.url);
 const {relativePath} = _require('@parcel/utils');
@@ -176,17 +178,27 @@ async function toImportFn(stories, generatedEntries) {
   let imports = [];
   let entries = [];
   for (let glob of stories) {
-    entries.push(`...import(${JSON.stringify('story:' + btoa(relativePath(generatedEntries, glob)))})`);
+    if (PARCEL_V3) {
+      let name = `entry_${imports.length}`;
+      imports.push(`import * as ${name} from ${JSON.stringify(relativePath(generatedEntries, glob) + '?async=true&flat=true')};`);
+      entries.push(`...${name}`);
+    } else {
+      entries.push(`...import(${JSON.stringify('story:' + btoa(relativePath(generatedEntries, glob)))})`);
+    }
   }
+
+  let relative = relativePath(process.cwd(), generatedEntries);
 
   return `
     ${imports.join('\n')}
+    // import path from 'path';
 
     const importers = {
       ${entries.join(',\n')}
     };
 
     async function importFn(p) {
+      p = ${PARCEL_V3 ? `path.relative(${JSON.stringify(relative)}, p)` : 'p'};
       return importers[p]();
     }
   `;

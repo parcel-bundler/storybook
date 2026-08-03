@@ -1,0 +1,12 @@
+---
+source: tests/package.rs
+expression: "package_one(\"export let a: number = 4;\")"
+---
+{
+  "exports": {
+    "a": {
+      "type": "number"
+    }
+  },
+  "links": {}
+}

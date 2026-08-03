@@ -1,0 +1,50 @@
+---
+source: tests/package.rs
+expression: "package_many(&[(\"/test/src/index.tsx\",\n\"import {Foo} from './component';\\nexport function Bar(props: Foo) {\\n  return null;\\n}\"),\n(\"/test/src/component.tsx\", \"export interface Foo {\\n  a: number\\n};\"),])"
+---
+{
+  "exports": {
+    "Bar": {
+      "type": "function",
+      "id": "/test/src/index.tsx:Bar",
+      "name": "Bar",
+      "parameters": [
+        {
+          "type": "parameter",
+          "name": "props",
+          "value": {
+            "type": "link",
+            "id": "/test/src/component.tsx:Foo"
+          },
+          "optional": false,
+          "rest": false
+        }
+      ],
+      "return": {
+        "type": "any"
+      },
+      "typeParameters": []
+    }
+  },
+  "links": {
+    "/test/src/component.tsx:Foo": {
+      "type": "interface",
+      "id": "/test/src/component.tsx:Foo",
+      "name": "Foo",
+      "extends": [],
+      "properties": {
+        "a": {
+          "type": "property",
+          "name": "a",
+          "indexType": null,
+          "value": {
+            "type": "number"
+          },
+          "optional": false,
+          "default": null
+        }
+      },
+      "typeParameters": []
+    }
+  }
+}

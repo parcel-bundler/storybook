@@ -1,0 +1,37 @@
+---
+source: tests/transform.rs
+expression: "transform(\"index\",\n\"/**\\n * Docs.\\n * @example\\n * foo();\\n */\\nexport function Comp(props): JSX.Element {\\n  return null;\\n}\")"
+---
+{
+  "dependencies": [],
+  "types": [
+    {
+      "type": "any"
+    },
+    {
+      "type": "identifier",
+      "name": "JSX"
+    },
+    {
+      "type": "identifier",
+      "name": "JSX.Element"
+    },
+    {
+      "type": "component",
+      "id": "/test/src/index.tsx:Comp",
+      "name": "Comp",
+      "props": 0,
+      "typeParameters": [],
+      "ref": null,
+      "description": "Docs.",
+      "access": null,
+      "examples": [
+        "foo();"
+      ]
+    }
+  ],
+  "exports": {
+    "Comp": 3
+  },
+  "export_all": []
+}

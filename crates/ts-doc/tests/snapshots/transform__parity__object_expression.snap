@@ -1,0 +1,58 @@
+---
+source: tests/transform.rs
+expression: "transform(\"index\", \"export const config = {a: 1, b: 'x'};\")"
+---
+{
+  "dependencies": [],
+  "types": [
+    {
+      "type": "number",
+      "value": 1.0
+    },
+    {
+      "type": "string",
+      "value": "x"
+    },
+    {
+      "type": "interface",
+      "id": "/test/src/index.tsx:config",
+      "name": "config",
+      "extends": [],
+      "properties": {
+        "a": {
+          "name": "a",
+          "indexType": null,
+          "value": 0,
+          "optional": false,
+          "isMethod": false,
+          "static": false,
+          "abstract": false,
+          "description": null,
+          "access": null,
+          "selector": null,
+          "default": null
+        },
+        "b": {
+          "name": "b",
+          "indexType": null,
+          "value": 1,
+          "optional": false,
+          "isMethod": false,
+          "static": false,
+          "abstract": false,
+          "description": null,
+          "access": null,
+          "selector": null,
+          "default": null
+        }
+      },
+      "typeParameters": [],
+      "description": null,
+      "access": null
+    }
+  ],
+  "exports": {
+    "config": 2
+  },
+  "export_all": []
+}

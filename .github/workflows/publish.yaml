@@ -1,0 +1,20 @@
+name: build
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  parcel-plugin-storybook:
+    uses: parcel-bundler/parcel/.github/workflows/native-plugin.yml@core-rs3
+    with:
+      path: crates/parcel-plugin-storybook
+      publish: true
+  parcel-plugin-ts-doc:
+    uses: parcel-bundler/parcel/.github/workflows/native-plugin.yml@core-rs3
+    with:
+      path: crates/parcel-plugin-ts-doc
+      publish: true

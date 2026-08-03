@@ -1,0 +1,21 @@
+[package]
+name = "parcel-plugin-storybook"
+version = "0.1.0"
+edition = "2024"
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+md5 = "0.7"
+parcel-plugin = { git = "https://github.com/parcel-bundler/parcel.git", branch = "core-rs3" }
+swc_core = { version = "75", features = [
+  "common",
+  "common_sourcemap",
+  "ecma_ast",
+  "ecma_codegen",
+  "ecma_parser",
+  "ecma_quote",
+  "ecma_transforms",
+  "ecma_visit",
+] }

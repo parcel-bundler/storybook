@@ -1,0 +1,13 @@
+---
+source: tests/package.rs
+expression: "package_one(\"let name = 'foo';\\nexport let c = name;\")"
+---
+{
+  "exports": {
+    "c": {
+      "type": "string",
+      "value": "foo"
+    }
+  },
+  "links": {}
+}

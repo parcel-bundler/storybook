@@ -1,0 +1,48 @@
+---
+source: tests/transform.rs
+expression: "transform(\"index\",\n\"/**\\n * Does a thing.\\n * @param first The first argument.\\n * @param second The second argument.\\n */\\nexport function foo(first, second) { return first; }\")"
+---
+{
+  "dependencies": [],
+  "types": [
+    {
+      "type": "any"
+    },
+    {
+      "type": "any"
+    },
+    {
+      "type": "any"
+    },
+    {
+      "type": "function",
+      "id": "/test/src/index.tsx:foo",
+      "name": "foo",
+      "parameters": [
+        {
+          "name": "first",
+          "value": 0,
+          "optional": false,
+          "rest": false,
+          "description": "The first argument."
+        },
+        {
+          "name": "second",
+          "value": 1,
+          "optional": false,
+          "rest": false,
+          "description": "The second argument."
+        }
+      ],
+      "return": 2,
+      "typeParameters": [],
+      "description": "Does a thing.",
+      "access": null,
+      "examples": []
+    }
+  ],
+  "exports": {
+    "foo": 3
+  },
+  "export_all": []
+}

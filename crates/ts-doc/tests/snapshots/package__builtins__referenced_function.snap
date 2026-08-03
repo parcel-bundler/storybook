@@ -1,0 +1,12 @@
+---
+source: tests/package.rs
+expression: "package_one(\"function foo() {\\n  return 'foo';\\n}\\nexport let d = foo();\")"
+---
+{
+  "exports": {
+    "d": {
+      "type": "any"
+    }
+  },
+  "links": {}
+}

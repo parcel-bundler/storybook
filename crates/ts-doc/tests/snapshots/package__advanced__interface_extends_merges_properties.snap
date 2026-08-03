@@ -1,0 +1,38 @@
+---
+source: tests/package.rs
+expression: "package_one(\"interface Base { a: number; }\\nexport interface Foo extends Base { b: string; }\")"
+---
+{
+  "exports": {
+    "Foo": {
+      "type": "interface",
+      "id": "/test/src/index.tsx:Foo",
+      "name": "Foo",
+      "extends": [],
+      "properties": {
+        "b": {
+          "type": "property",
+          "name": "b",
+          "indexType": null,
+          "value": {
+            "type": "string"
+          },
+          "optional": false,
+          "default": null
+        },
+        "a": {
+          "type": "property",
+          "name": "a",
+          "indexType": null,
+          "value": {
+            "type": "number"
+          },
+          "optional": false,
+          "default": null
+        }
+      },
+      "typeParameters": []
+    }
+  },
+  "links": {}
+}

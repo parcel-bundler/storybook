@@ -1,0 +1,60 @@
+---
+source: tests/transform.rs
+expression: "transform(\"index\",\n\"import {forwardRef} from 'react';\\nexport const Button = forwardRef((props: {x: number}, ref) => <div />);\")"
+---
+{
+  "dependencies": [],
+  "types": [
+    {
+      "type": "reference",
+      "specifier": "react",
+      "imported": "forwardRef",
+      "local": "forwardRef"
+    },
+    {
+      "type": "number",
+      "value": null
+    },
+    {
+      "type": "object",
+      "properties": {
+        "x": {
+          "name": "x",
+          "indexType": null,
+          "value": 1,
+          "optional": false,
+          "isMethod": false,
+          "static": false,
+          "abstract": false,
+          "description": null,
+          "access": null,
+          "selector": null,
+          "default": null
+        }
+      },
+      "description": null,
+      "access": null
+    },
+    {
+      "type": "any"
+    },
+    {
+      "type": "any"
+    },
+    {
+      "type": "component",
+      "id": "/test/src/index.tsx:Button",
+      "name": "Button",
+      "props": 2,
+      "typeParameters": [],
+      "ref": 3,
+      "description": null,
+      "access": null,
+      "examples": []
+    }
+  ],
+  "exports": {
+    "Button": 5
+  },
+  "export_all": []
+}

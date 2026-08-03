@@ -1,0 +1,19 @@
+---
+source: tests/package.rs
+expression: "package_one(\"import React from 'react';\\n\\nfunction App2(props) {\\n  return <div />;\\n}\\nexport {App2 as AppReal};\")"
+---
+{
+  "exports": {
+    "AppReal": {
+      "type": "component",
+      "id": "/test/src/index.tsx:App2",
+      "name": "AppReal",
+      "props": {
+        "type": "any"
+      },
+      "typeParameters": [],
+      "ref": null
+    }
+  },
+  "links": {}
+}

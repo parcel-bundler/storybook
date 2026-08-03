@@ -1,0 +1,91 @@
+---
+source: tests/package.rs
+expression: "package_one(\"interface Full { a: number; b: string; c: boolean; }\\nexport type Sub = Pick<Full, 'a'>;\")"
+---
+{
+  "exports": {
+    "Sub": {
+      "type": "link",
+      "id": "/test/src/index.tsx:Sub"
+    }
+  },
+  "links": {
+    "/test/src/index.tsx:Sub": {
+      "type": "alias",
+      "id": "/test/src/index.tsx:Sub",
+      "name": "Sub",
+      "value": {
+        "type": "application",
+        "base": {
+          "type": "interface",
+          "id": "/test/src/index.tsx:Full",
+          "name": "Full",
+          "extends": [],
+          "properties": {
+            "a": {
+              "type": "property",
+              "name": "a",
+              "indexType": null,
+              "value": {
+                "type": "number"
+              },
+              "optional": false,
+              "default": null
+            }
+          },
+          "typeParameters": []
+        },
+        "typeParameters": [
+          {
+            "type": "link",
+            "id": "/test/src/index.tsx:Full"
+          },
+          {
+            "type": "string",
+            "value": "a"
+          }
+        ]
+      },
+      "typeParameters": []
+    },
+    "/test/src/index.tsx:Full": {
+      "type": "interface",
+      "id": "/test/src/index.tsx:Full",
+      "name": "Full",
+      "extends": [],
+      "properties": {
+        "a": {
+          "type": "property",
+          "name": "a",
+          "indexType": null,
+          "value": {
+            "type": "number"
+          },
+          "optional": false,
+          "default": null
+        },
+        "b": {
+          "type": "property",
+          "name": "b",
+          "indexType": null,
+          "value": {
+            "type": "string"
+          },
+          "optional": false,
+          "default": null
+        },
+        "c": {
+          "type": "property",
+          "name": "c",
+          "indexType": null,
+          "value": {
+            "type": "boolean"
+          },
+          "optional": false,
+          "default": null
+        }
+      },
+      "typeParameters": []
+    }
+  }
+}

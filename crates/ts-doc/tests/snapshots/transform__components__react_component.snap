@@ -1,0 +1,36 @@
+---
+source: tests/transform.rs
+expression: "transform(\"index\",\n\"import React from 'react';\\n\\nexport function App1(props) {\\n  return <div />;\\n}\")"
+---
+{
+  "dependencies": [],
+  "types": [
+    {
+      "type": "reference",
+      "specifier": "react",
+      "imported": "default",
+      "local": "React"
+    },
+    {
+      "type": "any"
+    },
+    {
+      "type": "any"
+    },
+    {
+      "type": "component",
+      "id": "/test/src/index.tsx:App1",
+      "name": "App1",
+      "props": 1,
+      "typeParameters": [],
+      "ref": null,
+      "description": null,
+      "access": null,
+      "examples": []
+    }
+  ],
+  "exports": {
+    "App1": 3
+  },
+  "export_all": []
+}

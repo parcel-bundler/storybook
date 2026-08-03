@@ -1,0 +1,24 @@
+{
+  "name": "@parcel/transformer-ts-doc",
+  "description": "Parcel v3 transformer for typescript documentation",
+  "version": "0.0.0",
+  "license": "MIT",
+  "repository": "https://github.com/devongovett/ts-doc-rs",
+  "files": [],
+  "engines": {
+    "parcel": "^3"
+  },
+  "parcel": {
+    "abi": 1,
+    "devLibrary": "../../target/release/libparcel_plugin_ts_doc",
+    "artifacts": {
+      "aarch64-apple-darwin": "@parcel/transformer-ts-doc-darwin-arm64",
+      "x86_64-apple-darwin": "@parcel/transformer-ts-doc-darwin-x64",
+      "x86_64-pc-windows-msvc": "@parcel/transformer-ts-doc-win32-x64-msvc",
+      "x86_64-unknown-linux-gnu": "@parcel/transformer-ts-doc-linux-x64-gnu",
+      "aarch64-unknown-linux-gnu": "@parcel/transformer-ts-doc-linux-arm64-gnu",
+      "x86_64-unknown-linux-musl": "@parcel/transformer-ts-doc-linux-x64-musl",
+      "aarch64-unknown-linux-musl": "@parcel/transformer-ts-doc-linux-arm64-musl"
+    }
+  }
+}

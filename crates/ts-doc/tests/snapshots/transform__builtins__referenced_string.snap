@@ -1,0 +1,17 @@
+---
+source: tests/transform.rs
+expression: "transform(\"index\", \"let name = 'foo';\\nexport let c = name;\")"
+---
+{
+  "dependencies": [],
+  "types": [
+    {
+      "type": "string",
+      "value": "foo"
+    }
+  ],
+  "exports": {
+    "c": 0
+  },
+  "export_all": []
+}

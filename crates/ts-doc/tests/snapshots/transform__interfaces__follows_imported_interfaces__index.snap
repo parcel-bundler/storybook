@@ -1,0 +1,43 @@
+---
+source: tests/transform.rs
+expression: "transform(\"index\",\n\"import {Foo} from './component';\\nexport function Bar(props: Foo) {\\n  return null;\\n}\")"
+---
+{
+  "dependencies": [
+    "./component"
+  ],
+  "types": [
+    {
+      "type": "reference",
+      "specifier": "./component",
+      "imported": "Foo",
+      "local": "Foo"
+    },
+    {
+      "type": "any"
+    },
+    {
+      "type": "function",
+      "id": "/test/src/index.tsx:Bar",
+      "name": "Bar",
+      "parameters": [
+        {
+          "name": "props",
+          "value": 0,
+          "optional": false,
+          "rest": false,
+          "description": null
+        }
+      ],
+      "return": 1,
+      "typeParameters": [],
+      "description": null,
+      "access": null,
+      "examples": []
+    }
+  ],
+  "exports": {
+    "Bar": 2
+  },
+  "export_all": []
+}

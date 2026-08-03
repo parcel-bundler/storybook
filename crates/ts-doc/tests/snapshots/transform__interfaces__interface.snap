@@ -1,0 +1,41 @@
+---
+source: tests/transform.rs
+expression: "transform(\"index\", \"export interface Foo {\\n  a: number\\n};\")"
+---
+{
+  "dependencies": [],
+  "types": [
+    {
+      "type": "number",
+      "value": null
+    },
+    {
+      "type": "interface",
+      "id": "/test/src/index.tsx:Foo",
+      "name": "Foo",
+      "extends": [],
+      "properties": {
+        "a": {
+          "name": "a",
+          "indexType": null,
+          "value": 0,
+          "optional": false,
+          "isMethod": false,
+          "static": false,
+          "abstract": false,
+          "description": null,
+          "access": null,
+          "selector": null,
+          "default": null
+        }
+      },
+      "typeParameters": [],
+      "description": null,
+      "access": null
+    }
+  ],
+  "exports": {
+    "Foo": 1
+  },
+  "export_all": []
+}

@@ -1,0 +1,37 @@
+---
+source: tests/transform.rs
+expression: "transform(\"index\", \"export type F = new () => string;\")"
+---
+{
+  "dependencies": [],
+  "types": [
+    {
+      "type": "string",
+      "value": null
+    },
+    {
+      "type": "function",
+      "id": null,
+      "name": null,
+      "parameters": [],
+      "return": 0,
+      "typeParameters": [],
+      "description": null,
+      "access": null,
+      "examples": []
+    },
+    {
+      "type": "alias",
+      "id": "/test/src/index.tsx:F",
+      "name": "F",
+      "value": 1,
+      "typeParameters": [],
+      "description": null,
+      "access": null
+    }
+  ],
+  "exports": {
+    "F": 2
+  },
+  "export_all": []
+}
