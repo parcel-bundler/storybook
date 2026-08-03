@@ -3,7 +3,7 @@
   "description": "Parcel v3 transformer for typescript documentation",
   "version": "0.0.1",
   "license": "MIT",
-  "repository": "https://github.com/devongovett/ts-doc-rs",
+  "repository": "https://github.com/parcel-bundler/storybook",
   "files": [],
   "engines": {
     "parcel": "^3"

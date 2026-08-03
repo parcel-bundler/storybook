@@ -1,9 +1,6 @@
 name: build
 
 on:
-  push:
-    branches:
-      - "parcel3"
   workflow_dispatch:
 
 permissions:
@@ -11,13 +8,10 @@ permissions:
   id-token: write
 
 jobs:
-  parcel-plugin-storybook:
+  publish:
     uses: parcel-bundler/parcel/.github/workflows/native-plugin.yml@core-rs3
     with:
-      path: crates/parcel-plugin-storybook
-      publish: true
-  parcel-plugin-ts-doc:
-    uses: parcel-bundler/parcel/.github/workflows/native-plugin.yml@core-rs3
-    with:
-      path: crates/parcel-plugin-ts-doc
+      paths: |
+        crates/parcel-plugin-storybook
+        crates/parcel-plugin-ts-doc
       publish: true
