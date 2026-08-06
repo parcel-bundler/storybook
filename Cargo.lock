@@ -663,7 +663,7 @@ dependencies = [
 [[package]]
 name = "parcel-plugin"
 version = "0.1.0"
-source = "git+https://github.com/parcel-bundler/parcel.git?branch=core-rs3#b9d9a54c46dea54952a560c532548ba930b5351e"
+source = "git+https://github.com/parcel-bundler/parcel.git?branch=core-rs3#7c32803b48b19bda4de3737d61f9556d69e9a57e"
 
 [[package]]
 name = "parcel-plugin-storybook"
