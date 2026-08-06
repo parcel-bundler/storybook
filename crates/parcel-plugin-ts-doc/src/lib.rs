@@ -19,12 +19,13 @@ impl Plugin for DocTransformer {
     _options: &parcel_plugin::Options,
   ) -> Result<(), Diagnostic> {
     let path = asset.file_path();
+    let query = asset.query();
     let code = asset.content();
     let api = parse(Path::new(&path), code);
 
     for dep in &api.dependencies {
       asset.add_dependency(DependencyOptions {
-        specifier: format!("docs:{}", dep),
+        specifier: format!("docs:{}?inline=true", dep),
         specifier_type: parcel_plugin::SpecifierType::Esm,
         flags: DependencyFlags::SIDE_EFFECTS,
         conditions: ExportsConditions::TYPES,
@@ -32,9 +33,13 @@ impl Plugin for DocTransformer {
       });
     }
 
-    asset.set_type("docs");
+    asset.set_type("json");
     asset.set_custom_content(DocContent { api });
-    asset.set_bundle_behavior(parcel_plugin::BundleBehavior::Inline);
+    asset.set_bundle_behavior(if query == "inline=true" {
+      parcel_plugin::BundleBehavior::Inline
+    } else {
+      parcel_plugin::BundleBehavior::Isolated
+    });
 
     Ok(())
   }
@@ -57,16 +62,12 @@ impl AssetContent for DocContent {
     bundle: &parcel_plugin::Bundle,
     _options: &parcel_plugin::Options,
   ) -> Result<ContentBuffer, Diagnostic> {
-    if bundle.main_entry_asset().is_some() {
-      let output = package(&DocGraph {
-        bundle_graph,
-        bundle,
-      });
-      let json = serde_json::to_string_pretty(&output).unwrap();
-      Ok(ContentBuffer::String(json))
-    } else {
-      Ok(ContentBuffer::Bytes(vec![]))
-    }
+    let output = package(&DocGraph {
+      bundle_graph,
+      bundle,
+    });
+    let json = serde_json::to_string_pretty(&output).unwrap();
+    Ok(ContentBuffer::String(json))
   }
 }
 
@@ -77,7 +78,11 @@ struct DocGraph<'a> {
 
 impl<'a> ts_doc::BundleGraph for DocGraph<'a> {
   fn entry(&self) -> ts_doc::AssetId {
-    self.bundle.main_entry_asset().unwrap() as usize
+    self
+      .bundle
+      .main_entry_asset()
+      .or_else(|| self.bundle.asset(0))
+      .unwrap() as usize
   }
 
   fn api(&self, asset: ts_doc::AssetId) -> &API {
@@ -92,7 +97,8 @@ impl<'a> ts_doc::BundleGraph for DocGraph<'a> {
   fn resolve(&self, asset_id: ts_doc::AssetId, specifier: &str) -> Option<ts_doc::AssetId> {
     let asset = self.bundle_graph.asset(asset_id as u32).unwrap();
     for (dep_index, dep) in asset.dependencies().enumerate() {
-      if &dep.specifier()[5..] == specifier {
+      let s = dep.specifier();
+      if &s[5..s.len() - 12] == specifier {
         match self
           .bundle_graph
           .dependency_resolution(asset_id as u32, dep_index)

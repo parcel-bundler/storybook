@@ -1,7 +1,7 @@
 {
   "name": "@parcel/transformer-ts-doc",
   "description": "Parcel v3 transformer for typescript documentation",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "license": "MIT",
   "repository": "https://github.com/parcel-bundler/storybook",
   "files": [],
