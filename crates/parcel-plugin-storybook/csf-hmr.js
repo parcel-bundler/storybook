@@ -1,6 +1,9 @@
 'use strict';
 
-var Refresh = require('react-refresh/runtime');
+// The React Refresh runtime embedded in Parcel, which its React Refresh wrapper injects into React.
+// The project's own react-refresh/runtime is a separate instance that React doesn't know about, so
+// registering components and performing refreshes with it would do nothing.
+var Refresh = require('@parcel/parcel3/src/react-refresh-runtime.js');
 function debounce(func, delay) {
   if (process.env.NODE_ENV === 'test') {
     return function (args) {

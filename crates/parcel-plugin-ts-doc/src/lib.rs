@@ -2,7 +2,7 @@ use std::path::Path;
 
 use parcel_plugin::{
   Asset, AssetContent, BundleGraphDependencyResolution, ContentBuffer, DependencyFlags,
-  DependencyOptions, Diagnostic, ExportsConditions, Plugin, register_plugin,
+  DependencyOptions, Diagnostic, ExportsConditions, Plugin, register_plugin, type_id,
 };
 use ts_doc::{API, package, parse};
 
@@ -20,17 +20,16 @@ impl Plugin for DocTransformer {
   ) -> Result<(), Diagnostic> {
     let path = asset.file_path();
     let query = asset.query();
-    let code = asset.content();
+    let code = asset.content()?;
     let api = parse(Path::new(&path), code);
 
     for dep in &api.dependencies {
-      asset.add_dependency(DependencyOptions {
-        specifier: format!("docs:{}?inline=true", dep),
-        specifier_type: parcel_plugin::SpecifierType::Esm,
-        flags: DependencyFlags::SIDE_EFFECTS,
-        conditions: ExportsConditions::TYPES,
-        ..Default::default()
-      });
+      asset.add_dependency(
+        DependencyOptions::new(format!("docs:{}?inline=true", dep))
+          .specifier_type(parcel_plugin::SpecifierType::Esm)
+          .flags(DependencyFlags::SIDE_EFFECTS)
+          .conditions(ExportsConditions::TYPES),
+      )?;
     }
 
     asset.set_type("json");
@@ -52,6 +51,8 @@ struct DocContent {
 }
 
 impl AssetContent for DocContent {
+  const TYPE_ID: [u8; 16] = type_id!("DocContent");
+
   fn read(&self) -> Result<ContentBuffer, Diagnostic> {
     unreachable!()
   }
@@ -72,8 +73,8 @@ impl AssetContent for DocContent {
 }
 
 struct DocGraph<'a> {
-  bundle_graph: &'a parcel_plugin::BundleGraph,
-  bundle: &'a parcel_plugin::Bundle,
+  bundle_graph: &'a parcel_plugin::BundleGraph<'a>,
+  bundle: &'a parcel_plugin::Bundle<'a>,
 }
 
 impl<'a> ts_doc::BundleGraph for DocGraph<'a> {
@@ -104,7 +105,9 @@ impl<'a> ts_doc::BundleGraph for DocGraph<'a> {
           .dependency_resolution(asset_id as u32, dep_index)
         {
           BundleGraphDependencyResolution::Asset(resolution) => return Some(resolution as usize),
-          BundleGraphDependencyResolution::Bundle(b) => {
+          BundleGraphDependencyResolution::Bundle {
+            bundle_index: b, ..
+          } => {
             return self
               .bundle_graph
               .bundle(b)

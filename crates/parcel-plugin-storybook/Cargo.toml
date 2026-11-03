@@ -8,7 +8,7 @@ crate-type = ["cdylib"]
 
 [dependencies]
 md5 = "0.7"
-parcel-plugin = { git = "https://github.com/parcel-bundler/parcel.git", branch = "core-rs3" }
+parcel-plugin = { git = "https://github.com/parcel-bundler/parcel.git", branch = "v3" }
 swc_core = { version = "75", features = [
   "common",
   "common_sourcemap",

@@ -9,7 +9,7 @@ permissions:
 
 jobs:
   publish:
-    uses: parcel-bundler/parcel/.github/workflows/native-plugin.yml@core-rs3
+    uses: parcel-bundler/parcel/.github/workflows/native-plugin.yml@v3
     with:
       paths: |
         crates/parcel-plugin-storybook

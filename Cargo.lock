@@ -663,7 +663,10 @@ dependencies = [
 [[package]]
 name = "parcel-plugin"
 version = "0.1.0"
-source = "git+https://github.com/parcel-bundler/parcel.git?branch=core-rs3#7c32803b48b19bda4de3737d61f9556d69e9a57e"
+source = "git+https://github.com/parcel-bundler/parcel.git?branch=v3#835eb2ee88a98f7862dd83a92dee39e86e33f5d2"
+dependencies = [
+ "sha2-const-stable",
+]
 
 [[package]]
 name = "parcel-plugin-storybook"
@@ -961,6 +964,12 @@ dependencies = [
  "serde_core",
  "zmij",
 ]
+
+[[package]]
+name = "sha2-const-stable"
+version = "0.1.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "5f179d4e11094a893b82fff208f74d448a7512f99f5a0acbd5c679b705f83ed9"
 
 [[package]]
 name = "similar"

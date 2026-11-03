@@ -32,12 +32,12 @@ impl Plugin for StorybookPlugin {
     asset: &mut Asset,
     options: &parcel_plugin::Options,
   ) -> Result<(), Diagnostic> {
-    let code = asset.content();
+    let code = asset.content()?;
     let file_path = asset.file_path();
     let refresh_name = (options.env("NODE_ENV").as_deref() != Some("production")).then(|| {
       format!(
         "$parcel$ReactRefresh${}",
-        &md5_hex(file_path.as_bytes())[28..]
+        &md5_hex(file_path.as_os_str().as_encoded_bytes())[28..]
       )
     });
 
